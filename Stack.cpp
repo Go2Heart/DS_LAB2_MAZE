@@ -3,7 +3,7 @@
 #include "Stack.h"
 template<class T> Stack<T>::Stack(int Size)
 {
-	Data = new[Size];
+	Data = new T[Size];
 	if(!Data)
 		fprintf(stderr, "Array Initialization Failed!\n");
 	Top = -1;

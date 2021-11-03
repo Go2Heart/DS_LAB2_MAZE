@@ -5,7 +5,7 @@ class Array
 		T *Data;
 		int N, M;
 	public:
-		Array(int InitN, int InitM);
+		Array(int InitN, int InitM, T val);
 		~Array();
 		bool Assign(int x, int y, T val);
 		bool Value(int x, int y, T* val);

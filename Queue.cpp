@@ -3,7 +3,7 @@
 #include "Queue.h"
 template<class T> Queue<T>::Queue(int Size)
 {
-	Data = new[Size];
+	Data = new T[Size];
 	if(!Data)
 		fprintf(stderr, "Array Initialization Failed!\n");
 	Head = 0, Tail = -1;

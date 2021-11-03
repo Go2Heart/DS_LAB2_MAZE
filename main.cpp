@@ -22,8 +22,8 @@ int main()
 	fclose(fin);
 	DfsSolver SolByDfs;
 	BfsSolver SolByBfs;
-	if(!SolByDfs.Solve(fopen("Maze.in", "r")))
+	if(!SolByDfs.Solve(fopen("Maze.in", "r"), fopen("SolByDfs.out", "w")))
 		fprintf(stderr, "Solve By DFS Error!\n");
-	if(!SolByBfs.Solve(fopen("Maze.in", "r")))
+	if(!SolByBfs.Solve(fopen("Maze.in", "r"), fopen("SolByBfs.out", "w"), fopen("AllPath.out", "w")))
 		fprintf(stderr, "Solve By BFS Error!\n");
 }

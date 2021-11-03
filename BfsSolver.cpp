@@ -1,17 +1,25 @@
 #include<cstdio>
 #include<cstdlib>
 #include "Queue.h"
+#include "Stack.h"
 #include "BfsNode.h"
 #include "Array.h"
 #include "BfsSolver.h"
 bool BfsSolver::Init(int InitN, int InitM)
 {
 	Q = Queue<BfsNode> (N * M);
-	Map = Array<bool> (N, M);
-	Vis = Array<bool> (N, M);
+	AnsStack = Stack<BfsNode> (N * M);
+	Map = Array<bool> (N, M, 0);
+	Vis = Array<bool> (N, M, 0);
+	Pre = Array<int> (N, M, 0);
+	AnsQ = Queue<BfsNode> (4);
 	N = InitN, M = InitM;
 }
-bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* Debug = NULL)
+bool BfsSolver::Available(int x, int y)
+{
+	return x >= 1 && x <= N && y >= 1 && y <= M; 
+}
+bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/)
 {
 	int InitN, InitM, x;
 	fscanf(fin, "%d %d", &InitN, &InitM);
@@ -30,14 +38,70 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* Debug = NULL)
 		BfsNode Cur;
 		Q.DeQueue(&Cur);
 		Vis.Assign(Cur.x, Cur.y, true);
+		if(Cur.x == Tx && Cur.y == Ty) continue;
 		for(int k = 0; k < 4; k++)
 		{
 			int nx = Cur.x + dx[k];
 			int ny = Cur.y + dy[k];
+			if (!Available(nx, ny)) continue;
 			bool f1, f2;
+			if(nx == Tx && ny == Ty)
+			{
+				AnsQ.InQueue(BfsNode(Cur.x, Cur.y, k));
+			}
 			if(Vis.Value(nx, ny, &f1) && !f1 && Map.Value(nx, ny, &f2) && !f2)
+			{
 				Q.InQueue(BfsNode(nx, ny, k));
+				Pre.Assign(nx, ny, k ^ 1);
+			}
+		}
+	}
+	fprintf(fout, "The shortest path is as below:\n");
+	bool Arrive = 0;
+	while(!AnsQ.IsEmpty())
+	{
+		BfsNode Cur, Tmp;
+		AnsQ.DeQueue(&Cur);
+		if(!Arrive)
+		{
+			Arrive = 1;
+			AnsStack.Push(Cur);
+			Tmp = Cur;
+			int TmpPre;
+			while(!(Tmp.x == Sx && Tmp.y == Sy))
+			{
+				if(Pre.Value(Cur.x, Cur.y, &TmpPre))
+				{
+					Tmp = BfsNode(Tmp.x + dx[TmpPre], Tmp.y + dy[TmpPre]);
+				}
+				else fprintf(stderr, "out of range!\n");
+				AnsStack.Push(Tmp);
+			}
+			while(!AnsStack.IsEmpty())
+			{
+				AnsStack.Pop(&Tmp);
+				fprintf(fout, "from (%d,%d), move to the %s ,arrive at (%d,%d)\n", Tmp.x, Tmp.y, Dir[Tmp.d], Tmp.x + dx[Tmp.d], Tmp.y + dy[Tmp.d]);
+			}
+		}
+		AnsStack.Push(Cur);
+		Tmp = Cur;
+		int TmpPre;
+		while(!(Tmp.x == Sx && Tmp.y == Sy))
+		{
+			if(Pre.Value(Cur.x, Cur.y, &TmpPre))
+			{
+				Tmp = BfsNode(Tmp.x + dx[TmpPre], Tmp.y + dy[TmpPre]);
+			}
+			else fprintf(stderr, "out of range!\n");
+			AnsStack.Push(Tmp);
+		}
+		while(!AnsStack.IsEmpty())
+		{
+			AnsStack.Pop(&Tmp);
+			fprintf(fout2, "from (%d,%d), move to the %s ,arrive at (%d,%d)\n", Tmp.x, Tmp.y, Dir[Tmp.d], Tmp.x + dx[Tmp.d], Tmp.y + dy[Tmp.d]);
 		}
 	}
 	fclose(fin);
+	fclose(fout);
+	fclose(fout2);
 }
