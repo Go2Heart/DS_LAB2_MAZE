@@ -1,0 +1,40 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = BfsNode.o BfsSolver.o DfsNode.o DfsSolver.o main.o
+LINKOBJ  = BfsNode.o BfsSolver.o DfsNode.o DfsSolver.o main.o
+LIBS     = -L"D:/Program Files/Dev-Cpp/MinGW64/lib" -L"D:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"D:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Program Files/Dev-Cpp/MinGW64/include" -I"D:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 项目1.exe
+CXXFLAGS = $(CXXINCS) -g3 -std=c++11 -Wl,--stack=233333333
+CFLAGS   = $(INCS) -g3 -std=c++11 -Wl,--stack=233333333
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BfsNode.o: BfsNode.cpp
+	$(CPP) -c BfsNode.cpp -o BfsNode.o $(CXXFLAGS)
+
+BfsSolver.o: BfsSolver.cpp
+	$(CPP) -c BfsSolver.cpp -o BfsSolver.o $(CXXFLAGS)
+
+DfsNode.o: DfsNode.cpp
+	$(CPP) -c DfsNode.cpp -o DfsNode.o $(CXXFLAGS)
+
+DfsSolver.o: DfsSolver.cpp
+	$(CPP) -c DfsSolver.cpp -o DfsSolver.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

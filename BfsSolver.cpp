@@ -7,13 +7,13 @@
 #include "BfsSolver.h"
 bool BfsSolver::Init(int InitN, int InitM)
 {
+	N = InitN, M = InitM;
 	Q = Queue<BfsNode> (N * M);
 	AnsStack = Stack<BfsNode> (N * M);
 	Map = Array<bool> (N, M, 0);
 	Vis = Array<bool> (N, M, 0);
 	Pre = Array<int> (N, M, 0);
 	AnsQ = Queue<BfsNode> (4);
-	N = InitN, M = InitM;
 }
 bool BfsSolver::Available(int x, int y)
 {
@@ -24,19 +24,20 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 	int InitN, InitM, x;
 	fscanf(fin, "%d %d", &InitN, &InitM);
 	Init(InitN, InitM);
-	fscanf(fin, "%d %d", &Sx, &Sy);
-	fscanf(fin, "%d %d", &Tx, &Ty);
 	for(int i = 1; i <= N; i++)
 		for(int j = 1; j <= M; j++) 
 		{
 			fscanf(fin, "%d", &x);
 			Map.Assign(i, j, x);
 		}
+	fscanf(fin, "%d %d", &Sx, &Sy);
+	fscanf(fin, "%d %d", &Tx, &Ty);
 	Q.InQueue(BfsNode(Sx, Sy, -1));
 	while(!Q.IsEmpty())
 	{
 		BfsNode Cur;
 		Q.DeQueue(&Cur);
+		fprintf(stderr, "%d %d\n",Cur.x,Cur.y);
 		Vis.Assign(Cur.x, Cur.y, true);
 		if(Cur.x == Tx && Cur.y == Ty) continue;
 		for(int k = 0; k < 4; k++)
@@ -58,8 +59,11 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 	}
 	fprintf(fout, "The shortest path is as below:\n");
 	bool Arrive = 0;
+	int PathCnt = 0;
 	while(!AnsQ.IsEmpty())
 	{
+		++PathCnt;
+		fprintf(fout2, "Path %d:\n", PathCnt);
 		BfsNode Cur, Tmp;
 		AnsQ.DeQueue(&Cur);
 		if(!Arrive)
@@ -70,7 +74,7 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 			int TmpPre;
 			while(!(Tmp.x == Sx && Tmp.y == Sy))
 			{
-				if(Pre.Value(Cur.x, Cur.y, &TmpPre))
+				if(Pre.Value(Tmp.x, Tmp.y, &TmpPre))
 				{
 					Tmp = BfsNode(Tmp.x + dx[TmpPre], Tmp.y + dy[TmpPre]);
 				}
@@ -88,9 +92,9 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 		int TmpPre;
 		while(!(Tmp.x == Sx && Tmp.y == Sy))
 		{
-			if(Pre.Value(Cur.x, Cur.y, &TmpPre))
+			if(Pre.Value(Tmp.x, Tmp.y, &TmpPre))
 			{
-				Tmp = BfsNode(Tmp.x + dx[TmpPre], Tmp.y + dy[TmpPre]);
+				Tmp = BfsNode(Tmp.x + dx[TmpPre], Tmp.y + dy[TmpPre], TmpPre ^ 1);
 			}
 			else fprintf(stderr, "out of range!\n");
 			AnsStack.Push(Tmp);
@@ -104,4 +108,5 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 	fclose(fin);
 	fclose(fout);
 	fclose(fout2);
+	return true;
 }

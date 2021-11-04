@@ -18,21 +18,23 @@ bool DfsSolver::Solve(FILE* fin, FILE* fout/*, FILE* Debug = NULL*/)
 	int InitN, InitM, x;
 	fscanf(fin, "%d %d", &InitN, &InitM);
 	Init(InitN, InitM);
-	fscanf(fin, "%d %d", &Sx, &Sy);
-	fscanf(fin, "%d %d", &Tx, &Ty);
 	for(int i = 1; i <= N; i++)
 		for(int j = 1; j <= M; j++) 
 		{
 			fscanf(fin, "%d", &x);
+	//		fprintf(stderr, "%d  %d\n",N,M);
 			Map.Assign(i, j, x);
 		}
+	
+	fscanf(fin, "%d %d", &Sx, &Sy);
+	fscanf(fin, "%d %d", &Tx, &Ty);
 	S.Push(DfsNode(Sx, Sy, 0));
 	while(!S.IsEmpty())
 	{
 		DfsNode Cur;
 		S.Pop(&Cur);
-		if(Cur.k == 0)
-			Vis.Assign(Cur.x, Cur.y, 1);
+		Vis.Assign(Cur.x, Cur.y, 1); 
+		//fprintf(stderr,"%d %d %d\n",Cur.x,Cur.y,Cur.k);
 		if(Cur.x == Tx && Cur.y == Ty)
 			break;
 		if(Cur.k >= 4)
@@ -57,13 +59,16 @@ bool DfsSolver::Solve(FILE* fin, FILE* fout/*, FILE* Debug = NULL*/)
 		S.Pop(&Cur);
 		S2.Push(Cur);
 	}
-	fprintf(fout, "The path is as below:\n");
+	fprintf(stderr, "The path is as below:\n");
 	while(!S2.IsEmpty())
 	{
 		DfsNode Cur;
 		S2.Pop(&Cur);
-		fprintf(fout, "from (%d,%d), move to the %s ,arrive at (%d,%d)\n", Cur.x, Cur.y, Dir[Cur.k], Cur.x + dx[Cur.k], Cur.y + dy[Cur.k]);
+		Cur.k--;
+		//fprintf(stderr,"%d %d %d\n",Cur.x,Cur.y,Cur.k);
+		fprintf(stderr, "from (%d,%d), move to the %s ,arrive at (%d,%d)\n", Cur.x, Cur.y, Dir[Cur.k], Cur.x + dx[Cur.k], Cur.y + dy[Cur.k]);
 	}
 	fclose(fin);
 	fclose(fout);
+	return true;
 }
