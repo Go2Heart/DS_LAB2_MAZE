@@ -1,5 +1,6 @@
 struct DfsSolver
 {
+	DfsSolver(int N,int M) : N(N), M(M), Map(N, M, 0), Vis(N, M, 0), S(N * M) { }
 	Stack<DfsNode> S;
 	Array<bool> Map, Vis;
 	int N, M;

@@ -1,0 +1,3 @@
+C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE/build/CMakeFiles/lab_2.dir
+C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE/build/CMakeFiles/edit_cache.dir
+C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE/build/CMakeFiles/rebuild_cache.dir
