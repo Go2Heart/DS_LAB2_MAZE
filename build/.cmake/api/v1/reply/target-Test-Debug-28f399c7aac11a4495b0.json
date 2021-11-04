@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lab_2.exe"
+			"path" : "Test.exe"
 		},
 		{
-			"path" : "lab_2.pdb"
+			"path" : "Test.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
+					"fragment" : "-DTEST -g"
 				},
 				{
 					"fragment" : "-std=gnu++11"
@@ -63,13 +63,13 @@
 			]
 		}
 	],
-	"id" : "lab_2::@6890427a1f51a3e7e1df",
+	"id" : "Test::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-DTEST -g",
 				"role" : "flags"
 			},
 			{
@@ -83,8 +83,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lab_2",
-	"nameOnDisk" : "lab_2.exe",
+	"name" : "Test",
+	"nameOnDisk" : "Test.exe",
 	"paths" : 
 	{
 		"build" : ".",

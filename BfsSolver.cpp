@@ -5,21 +5,12 @@
 #include "BfsNode.h"
 #include "Array.h"
 #include "BfsSolver.h"
-bool BfsSolver::Init(int InitN, int InitM)
-{
-	N = InitN, M = InitM;
-	Queue<BfsNode> Q(N * M);
-	Stack<BfsNode> AnsStack(N * M);
-	Array<bool> Map(N, M, 0);
-	Array<bool> Vis(N, M, 0);
-	Array<int> Pre(N, M, 0);
-	Queue<BfsNode> AnsQ(4);
-	return true;
-}
+
 bool BfsSolver::Available(int x, int y)
 {
 	return x >= 1 && x <= N && y >= 1 && y <= M; 
 }
+
 bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/)
 {
 	int InitN, InitM, x;
@@ -33,6 +24,23 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 		}
 	fscanf(fin, "%d %d", &Sx, &Sy);
 	fscanf(fin, "%d %d", &Tx, &Ty);
+	bool f0;
+	if(!Available(Sx, Sy) || (Map.Value(Sx, Sy, &f0) && f0))
+	{
+		fprintf(fout, "Start Point Unreachable!\n");
+		fclose(fout);
+		fprintf(fout2, "Start Point Unreachable!\n");
+		fclose(fout2);
+		return false;
+	}
+	if(!Available(Tx, Ty) || (Map.Value(Tx, Ty, &f0) && f0))
+	{
+		fprintf(fout, "End Point Unreachable!\n");
+		fclose(fout);
+		fprintf(fout2, "End Point Unreachable!\n");
+		fclose(fout2);
+		return false;
+	}
 	Q.InQueue(BfsNode(Sx, Sy, -1));
 	while(!Q.IsEmpty())
 	{
@@ -56,6 +64,14 @@ bool BfsSolver::Solve(FILE* fin, FILE* fout, FILE* fout2/*, FILE* Debug = NULL*/
 				Pre.Assign(nx, ny, k ^ 1);
 			}
 		}
+	}
+	if(AnsQ.IsEmpty())
+	{
+		fprintf(fout, "No Available Path\n");
+		fclose(fout);
+		fprintf(fout2, "No Available Path\n");
+		fclose(fout2);
+		return false;
 	}
 	fprintf(fout, "The shortest path is as below:\n");
 	bool Arrive = 0;

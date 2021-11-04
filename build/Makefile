@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab_2
+# Target rules for targets named Test
 
 # Build rule for target.
-lab_2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lab_2
-.PHONY : lab_2
+Test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Test
+.PHONY : Test
 
 # fast build rule for target.
-lab_2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/build
-.PHONY : lab_2/fast
+Test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
 
 BfsNode.obj: BfsNode.cpp.obj
 .PHONY : BfsNode.obj
 
 # target to build an object file
 BfsNode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsNode.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsNode.cpp.obj
 .PHONY : BfsNode.cpp.obj
 
 BfsNode.i: BfsNode.cpp.i
@@ -141,7 +141,7 @@ BfsNode.i: BfsNode.cpp.i
 
 # target to preprocess a source file
 BfsNode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsNode.cpp.i
 .PHONY : BfsNode.cpp.i
 
 BfsNode.s: BfsNode.cpp.s
@@ -149,7 +149,7 @@ BfsNode.s: BfsNode.cpp.s
 
 # target to generate assembly for a file
 BfsNode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsNode.cpp.s
 .PHONY : BfsNode.cpp.s
 
 BfsSolver.obj: BfsSolver.cpp.obj
@@ -157,7 +157,7 @@ BfsSolver.obj: BfsSolver.cpp.obj
 
 # target to build an object file
 BfsSolver.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsSolver.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsSolver.cpp.obj
 .PHONY : BfsSolver.cpp.obj
 
 BfsSolver.i: BfsSolver.cpp.i
@@ -165,7 +165,7 @@ BfsSolver.i: BfsSolver.cpp.i
 
 # target to preprocess a source file
 BfsSolver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsSolver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsSolver.cpp.i
 .PHONY : BfsSolver.cpp.i
 
 BfsSolver.s: BfsSolver.cpp.s
@@ -173,7 +173,7 @@ BfsSolver.s: BfsSolver.cpp.s
 
 # target to generate assembly for a file
 BfsSolver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/BfsSolver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/BfsSolver.cpp.s
 .PHONY : BfsSolver.cpp.s
 
 DfsNode.obj: DfsNode.cpp.obj
@@ -181,7 +181,7 @@ DfsNode.obj: DfsNode.cpp.obj
 
 # target to build an object file
 DfsNode.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsNode.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsNode.cpp.obj
 .PHONY : DfsNode.cpp.obj
 
 DfsNode.i: DfsNode.cpp.i
@@ -189,7 +189,7 @@ DfsNode.i: DfsNode.cpp.i
 
 # target to preprocess a source file
 DfsNode.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsNode.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsNode.cpp.i
 .PHONY : DfsNode.cpp.i
 
 DfsNode.s: DfsNode.cpp.s
@@ -197,7 +197,7 @@ DfsNode.s: DfsNode.cpp.s
 
 # target to generate assembly for a file
 DfsNode.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsNode.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsNode.cpp.s
 .PHONY : DfsNode.cpp.s
 
 DfsSolver.obj: DfsSolver.cpp.obj
@@ -205,7 +205,7 @@ DfsSolver.obj: DfsSolver.cpp.obj
 
 # target to build an object file
 DfsSolver.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsSolver.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsSolver.cpp.obj
 .PHONY : DfsSolver.cpp.obj
 
 DfsSolver.i: DfsSolver.cpp.i
@@ -213,7 +213,7 @@ DfsSolver.i: DfsSolver.cpp.i
 
 # target to preprocess a source file
 DfsSolver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsSolver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsSolver.cpp.i
 .PHONY : DfsSolver.cpp.i
 
 DfsSolver.s: DfsSolver.cpp.s
@@ -221,7 +221,7 @@ DfsSolver.s: DfsSolver.cpp.s
 
 # target to generate assembly for a file
 DfsSolver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/DfsSolver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/DfsSolver.cpp.s
 .PHONY : DfsSolver.cpp.s
 
 main.obj: main.cpp.obj
@@ -229,7 +229,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -237,7 +237,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -245,7 +245,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -256,7 +256,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... lab_2
+	@echo ... Test
 	@echo ... BfsNode.obj
 	@echo ... BfsNode.i
 	@echo ... BfsNode.s

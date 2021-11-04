@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
-project (lab_2)
+project (Test)
 
 set(CMAKE_CXX_STANDARD 11)
-
-add_executable(lab_2
+set(CMAKE_CXX_FLAGS -DTEST) 
+add_executable(Test
         Array.h
         BfsNode.cpp
         BfsNode.h

@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = C:\Users\xixi\Desktop\data_str\DS_LAB2_MAZE\build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/lab_2.dir/all
+all: CMakeFiles/Test.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/lab_2.dir/clean
+clean: CMakeFiles/Test.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lab_2.dir
+# Target rules for target CMakeFiles/Test.dir
 
 # All Build rule for target.
-CMakeFiles/lab_2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\xixi\Desktop\data_str\DS_LAB2_MAZE\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target lab_2"
-.PHONY : CMakeFiles/lab_2.dir/all
+CMakeFiles/Test.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\xixi\Desktop\data_str\DS_LAB2_MAZE\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Test"
+.PHONY : CMakeFiles/Test.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lab_2.dir/rule: cmake_check_build_system
+CMakeFiles/Test.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\xixi\Desktop\data_str\DS_LAB2_MAZE\build\CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/lab_2.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\xixi\Desktop\data_str\DS_LAB2_MAZE\build\CMakeFiles 0
-.PHONY : CMakeFiles/lab_2.dir/rule
+.PHONY : CMakeFiles/Test.dir/rule
 
 # Convenience name for target.
-lab_2: CMakeFiles/lab_2.dir/rule
-.PHONY : lab_2
+Test: CMakeFiles/Test.dir/rule
+.PHONY : Test
 
 # clean rule for target.
-CMakeFiles/lab_2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_2.dir\build.make CMakeFiles/lab_2.dir/clean
-.PHONY : CMakeFiles/lab_2.dir/clean
+CMakeFiles/Test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Test.dir\build.make CMakeFiles/Test.dir/clean
+.PHONY : CMakeFiles/Test.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
