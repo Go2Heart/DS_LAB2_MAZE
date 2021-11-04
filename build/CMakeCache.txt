@@ -153,7 +153,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Test
+CMAKE_PROJECT_NAME:STATIC=Maze
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=D:/Program Files/Dev-Cpp/MinGW64/bin/ranlib.exe
@@ -234,6 +234,15 @@ CMAKE_STRIP:FILEPATH=D:/Program Files/Dev-Cpp/MinGW64/bin/strip.exe
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+Maze_BINARY_DIR:STATIC=C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE/build
+
+//Value Computed by CMake
+Maze_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Maze_SOURCE_DIR:STATIC=C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE
 
 //Value Computed by CMake
 Test_BINARY_DIR:STATIC=C:/Users/xixi/Desktop/data_str/DS_LAB2_MAZE/build
