@@ -1,3 +1,0 @@
-"E:\Program Files\cmake\bin\cmake.exe" -E rm -f CMakeFiles\lab_2.dir/objects.a
-D:\PROGRA~1\Dev-Cpp\MinGW64\bin\ar.exe qc CMakeFiles\lab_2.dir/objects.a @CMakeFiles\lab_2.dir\objects1.rsp
-D:\PROGRA~1\Dev-Cpp\MinGW64\bin\X86_64~2.EXE -g -Wl,--whole-archive CMakeFiles\lab_2.dir/objects.a -Wl,--no-whole-archive -o lab_2.exe -Wl,--out-implib,liblab_2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\lab_2.dir\linklibs.rsp

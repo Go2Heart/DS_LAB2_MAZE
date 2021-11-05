@@ -9,9 +9,9 @@ int main()
 	srand(time(NULL));
 	string prefix1, prefix2, suffix1, suffix2, now;
 	prefix1 = "TestData/Maze",prefix2 = "test", suffix1 = ".in",suffix2 = ".out";
-	for(int TestRound = 1; TestRound <= 5; TestRound++)
+	for(int TestRound = 1; TestRound <= 6; TestRound++)
 	{
-	//此循环用来自动将我们设计好的4个测试用例(TestData/Maze.in)载入test.in以供main.cpp读取
+	//此循环用来自动将我们设计好的6个测试用例(TestData/Maze.in)载入test.in以供main.cpp读取
 	//并将运行结果与TestData文件夹下内置的输出文件 调用cmd中 fc指令进行比较
 	//若比较无误则会输出  Test xx Passed!  字样
 		char tmp[20];
@@ -49,6 +49,6 @@ int main()
 			fprintf(stderr, "Test %d Passed!\n", TestRound);
 		}
 	}
-	fprintf(stderr, "Fixed TestData(Test 1~5) Passed!\n");
-	Sleep(1000); 
+	fprintf(stderr, "Fixed TestData(Test 1~6) Passed!\n");
+	system("pause"); 
 }
