@@ -29,9 +29,11 @@ int main()
 		fprintf(fin, "%d %d\n%d %d\n", sx, sy, tx, ty);
 		fclose(fin);
 		fclose(nowfin);	
-	#else 
+	#else
+		fprintf(stderr, "Maze Solving: please input the width and the height of the maze.(divided by space such as\"5 7\"):");
 		scanf("%d %d", &InitN, &InitM);
 		fprintf(fin, "%d %d\n", InitN, InitM);
+		fprintf(stderr, "Please input n * m 0/1 to set up the maze, as 0 for roads and 1 for walls:\n");
 		for(int i = 1; i <= InitN; i++)
 		{
 			for(int j = 1; j <= InitM; j++)
@@ -40,7 +42,10 @@ int main()
 				fprintf(fin, "%d%c", x, j == InitM ? '\n' : ' ');
 			}
 		}
-		scanf("%d%d%d%d",&sx, &sy, &tx, &ty);
+		fprintf(stderr, "Please input two integers to set up the start point:");
+		scanf("%d%d", &sx, &sy);
+		fprintf(stderr, "Please input two integers to set up the end point:");
+		scanf("%d%d", &tx, &ty);
 		fprintf(fin, "%d %d\n%d %d\n", sx, sy, tx, ty);
 		fclose(fin);
 	#endif
